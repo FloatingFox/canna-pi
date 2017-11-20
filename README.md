@@ -1,4 +1,4 @@
-# canna-pi
+# Canna-Pi
 
 Monitoring and Controlling your Growbox with a Raspberry Pi
 
