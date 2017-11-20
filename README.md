@@ -15,4 +15,5 @@ Todo:
   - Retrieve current Fanspeed from Raspberry Pi
   - Settings for when the light goes on/off graph displays full days
   - Settings for growth- and bloomperiod to calculate and display the actual growth/bloomday 
+  - Automatic fanspeed adjustment based on temperature and humidity depending on given parameters as max. temp/hum
   - Logbook where you can enter details as: nutrients, amount/time of watering, comments etc..
