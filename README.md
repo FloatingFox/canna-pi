@@ -25,3 +25,4 @@ Todo:
   - Logbook where you can enter details as: nutrients, amount/time of watering, comments etc..
   - Settings.ini with global variables (e.g. default amount of days shown) from different sites
   - Create install.php routine 
+  - Camera timelapse over the day saved as .gif at the end of day, then transferred to server and associated with logbook
