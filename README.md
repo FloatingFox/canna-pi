@@ -11,18 +11,15 @@ Hardware requirements:
 
 Features:
   - Temperature and Humidity logging into database.csv
-  - Periodical export of database.csv to external SQL-Database
-  - Display climate data in Graph on external Webserver (e.g. Synology NAS)
+  - Periodical export of database.csv to SQL-Database (Shell-script using wiringPi / Adafruit on Raspberry)
+  - Display climate data in Graph
   - Display climate data in raw-format
   - Control Fanspeed
 
 Todo:
-  - Retrieve current Fanspeed from Raspberry Pi
-  - Selection for both start and enddate of shown data
   - Automatic fanspeed adjustment based on temperature and humidity depending on given parameters as max. temp/hum
   - Settings for when the light goes on/off graph displays full days
   - Settings for growth- and bloomperiod to calculate and display the actual growth/bloomday 
   - Logbook where you can enter details as: nutrients, amount/time of watering, comments etc..
-  - Settings.ini with global variables (e.g. default amount of days shown) from different sites
   - Create install.php routine 
   - Camera timelapse over the day saved as .gif at the end of day, then transferred to server and associated with logbook
