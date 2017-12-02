@@ -18,8 +18,4 @@ Features:
 
 Todo:
   - Automatic fanspeed adjustment based on temperature and humidity depending on given parameters as max. temp/hum
-  - Settings for when the light goes on/off graph displays full days
-  - Settings for growth- and bloomperiod to calculate and display the actual growth/bloomday 
-  - Logbook where you can enter details as: nutrients, amount/time of watering, comments etc..
-  - Create install.php routine 
-  - Camera timelapse over the day saved as .gif at the end of day, then transferred to server and associated with logbook
+  
