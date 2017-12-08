@@ -5,14 +5,15 @@ background-color: #FAFAFA;
 }
 
 /* Ventilator Icons */
-
-.button{
+/* Adjust buttonStyle on iOS */
+button {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
 }
 
 .btnFan{
+   color: red;
    background:url('/icon/fan.svg');
    float: left;
    height:64px;
@@ -30,9 +31,6 @@ background-color: #FAFAFA;
    background-size:     cover;                      /* <------ */
    background-repeat:   no-repeat;
    background-position: center center;
-   -webkit-appearance: none;
-   -moz-appearance: none;
-   appearance: none;
 } 
 
 .btnFanOff{
@@ -45,6 +43,10 @@ background-color: #FAFAFA;
    background-position: center center;
 } 
 
+class.btnFan{
+	
+	
+}
 
 
 /* RAW-Data Table */
@@ -53,25 +55,15 @@ table.raw-data {
 	border-collapse: collapse;
     width: 25%;
 	border: 1px solid black;
-	/* width:25%;
-	border-collapse: collapse;
-	border: 1px solid black;
-	text-align: center;
-	padding: 0px; */
 }
 
 table.loginattempts {
 	border-collapse: collapse;
     width: 25%;
 	border: 1px solid black;
-	/* width:25%;
-	border-collapse: collapse;
-	border: 1px solid black;
-	text-align: center;
-	padding: 0px; */
 }
 
-td.output_table_collum_names {
+.output_table_collum_names {
 	font-weight: bold;
 	background-color: #2c3e50;
     color: white;
@@ -83,15 +75,15 @@ td.output_table_collum_names {
 }
 
 
-tr.output_table_rows {
+.output_table_rows {
 	border: 1px solid black;
 	border-collapse: collapse;
 	text-align: center;
 	width: 30%;
-	/* border-collapse: collapse;
-	border: 1px solid black;
-	text-align: center; */
 }
+
+
+
 
 .output_table_rows:nth-child(even){background-color: #f2f2f2;}
 .output_table_rows:hover {background-color: #ddd;}
