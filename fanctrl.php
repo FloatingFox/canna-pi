@@ -2,32 +2,31 @@
   <head>
     <meta charset="utf-8">
     <title>CPi | Fancontrol</title>
+	<link rel='shortcut icon' type='image/x-icon' href='icon/favicon.ico' />
+	<link rel="stylesheet" href="css/cannapi.css">
   </head>
  </html>
  
-<?php require "login/loginheader.php"; ?>
-<?php require "conf.php"; ?>
+<?php require 'login/loginheader.php'; ?>
+<?php $config = include 'conf.php'; ?>
 <?php
 
 $lti = $_GET["lti"];
 
 // FETCH CURRENT FANSPEED FROM RASPBERRY
-$stat = file_get_contents("http://".$rpiaddress."/fanstat.php");
+$stat = file_get_contents("http://".$config['rpiaddress']."/fanstat.php");
 
 // CHANGING FANSPEED 
 if(isset($lti)){
-	echo file_get_contents("http://".$rpiaddress."/fanctrl.php?lti=".$lti);
+	echo file_get_contents("http://".$config['rpiaddress']."/fanctrl.php?lti=".$lti);
 	
 }
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
+
+<html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
-    <link rel="stylesheet" href="css/cannapi.css">
+    
 	<script type="text/javascript">
 	
 

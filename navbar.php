@@ -21,7 +21,9 @@
 	  <a href="loginattempts.php">Last Logins</a>
 	</ul>
     </div>
-  </div> 
+	
+  </div>
+	<a href="settings.php">Settings</a>
 	<!-- 2. Dropdown -->
 	<!--
     <div class="dropdown">

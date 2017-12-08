@@ -1,8 +1,11 @@
 <?php require "login/loginheader.php"; ?>
-<?php require "././conf.php"; ?>
-<?php  
-$conn = new PDO("mysql:host=$host:$port;dbname=$db_name", $username, $password);
+<?php $config = include '././conf.php'; ?>
+<?php 
+$dsn = 'mysql:host='.$config['host'].':'.$config['port'].';dbname='.$config['db_name'];
+
+$conn = new PDO($dsn, $config['username'], $config['password']);
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  
   
   
 $fromDate = $_GET["fromDate"]; 
@@ -15,7 +18,7 @@ if($fromDate == ""){
 	
 }
 //GET SQL DATA FROM SPECIFIC TIMEFRAME
-  $connString = 'SELECT * FROM Klima WHERE datetime BETWEEN "'.$fromDate.'" and "'.$untilDate.'";';
+  $connString = 'SELECT * FROM '.$config['table'].' WHERE datetime BETWEEN "'.$fromDate.'" and "'.$untilDate.'";';
   
 try {
   $result = $conn->query($connString);
@@ -38,6 +41,7 @@ $table['rows'] = $rows;
 
 } catch(PDOException $e) {
     echo 'ERROR: ' . $e->getMessage();
+	
 }
 
 

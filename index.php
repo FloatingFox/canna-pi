@@ -2,14 +2,16 @@
   <head>
     <meta charset="utf-8">
     <title>CPi | Overview</title>
+	<link rel='shortcut icon' type='image/x-icon' href='icon/favicon.ico' />
+	<link rel="stylesheet" href="css/cannapi.css">
   </head>
  </html>
 <?php require 'login/loginheader.php'; ?>
 <?php include 'navbar.php'; ?>	
-<?php include 'conf.php'; ?>
+<?php $config = include 'conf.php'; ?>
 <?php 
 // FETCH CURRENT FANSPEED FROM RASPBERRY
-$stat = file_get_contents("http://".$rpiaddress."/fanstat.php");
+$stat = file_get_contents("http://".$config['rpiaddress']."/fanstat.php");
 
 //GET CURRENT DATE AND ADD TIME 00:00:00
 
@@ -51,11 +53,9 @@ header( "Location: $url" );
 
 
  ?>
-<!DOCTYPE html>
-<html lang="en">
+
+<html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script type="text/javascript">
@@ -124,6 +124,5 @@ header( "Location: $url" );
     
   </body>
 </html>
-<?php include 'fanctrl.php'; ?>	
-<?php include 'preview-data.php'; ?>
+<?php include 'fanctrl.php'; ?>
 

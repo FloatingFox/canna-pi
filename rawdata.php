@@ -7,13 +7,16 @@
 
 <?php require "login/loginheader.php"; ?>
 <?php include 'navbar.php'; ?>
-<?php require "conf.php"; ?>
+<?php $config = include 'conf.php'; ?>
 
-<html lang="en">
-  
+<html>
+  <link rel='shortcut icon' type='image/x-icon' href='icon/favicon.ico' />
+  <link rel="stylesheet" href="css/cannapi.css">
 <body>
 
 <?php
+
+$dsn = $config['host'].':'.$config['port'];
 //GET CURRENT DATE AND ADD TIME 00:00:00
 
 
@@ -29,8 +32,8 @@ $date->modify('-1 day');
 //SAVE CURRENT DATE -2 DAYS IN NEW VARIABLE
 $dateMin3 = $date->format('Y-m-d').' 00:00:00';
 
-$connection = mysql_connect($host.':'.$port, $username, $password); //The Blank string is the password
-mysql_select_db($db_name);
+$connection = mysql_connect($dsn, $config['username'], $config['password']); 
+mysql_select_db($config['db_name']);
 
 $query = 'SELECT * FROM Klima WHERE datetime BETWEEN "'.$dateMin3.'" and "2018-12-31 00:00:00" ORDER BY datetime DESC;';
 $result = mysql_query($query);

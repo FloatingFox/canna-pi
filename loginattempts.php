@@ -7,19 +7,21 @@
 
 <?php require "login/loginheader.php"; ?>
 <?php include 'navbar.php'; ?>
-<?php require "conf.php"; ?>
-<!DOCTYPE html>
-<html lang="en">
+<?php $config = include 'conf.php'; ?>
+
+<html>
   <head>
     <meta charset="utf-8">
     <title>RAW Data</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+	<link rel='shortcut icon' type='image/x-icon' href='icon/favicon.ico' />
 	<link rel="stylesheet" href="css/cannapi.css">
   </head>
 <body>
 
 <?php
+$dsn = $config['host'].':'.$config['port'];
+
 //GET CURRENT DATE AND ADD TIME 00:00:00
 
 
@@ -35,8 +37,8 @@ $date->modify('-1 day');
 //SAVE CURRENT DATE -2 DAYS IN NEW VARIABLE
 $dateMin3 = $date->format('Y-m-d').' 00:00:00';
 
-$connection = mysql_connect($host.':'.$port, $username, $password); //The Blank string is the password
-mysql_select_db($db_name);
+$connection = mysql_connect($dsn, $config['username'], $config['password']); 
+mysql_select_db($config['db_name']);
 
 $query = 'SELECT * FROM loginAttempts ORDER BY LastLogin DESC;';
 $result = mysql_query($query);
