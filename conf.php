@@ -8,4 +8,5 @@
   'rpiaddress' => '',
   'lightOn' => '',
   'lightOff' => '',
+  'shownDays' => '',
 );?>
