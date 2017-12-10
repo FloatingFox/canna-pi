@@ -66,7 +66,7 @@ $result = mysql_query($query);
 
 if(isset($_GET['del']) and !empty($_GET['del'])){
 	
-	mysql_query('DELETE FROM `Klima` WHERE record_id = '.$_GET['del']);	
+	mysql_query('DELETE FROM '.$config['table'].' WHERE record_id = '.$_GET['del']);	
 	// echo "<br />";
 	// echo "Record deleted";
 	// echo "<br />";
