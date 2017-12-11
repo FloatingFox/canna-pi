@@ -3,45 +3,50 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>CPi</title>
+    <title>Temperature Monitor</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
 	<link rel="stylesheet" href="css/cannapi.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
 	<!-- 1. Dropdown -->
- <div class="navbar">
-  <a href="index.php">CPI | Home</a>
+ <div class="navbar" >
+ 
+ 
+ 
+  <!-- <a href="index.php">Home</a> -->
+  
+	<a href="index.php"><i class="fa fa-home"></i></a>
   <div class="dropdown">
-    <button class="dropbtn">Advanced
-      <i class="fa fa-caret-down"></i>
-    </button>
+    <button class="dropbtn"><i class="fa fa-thermometer-half"></i></button>
     <div class="dropdown-content">
-	  <a href="rawdata.php">RAW Data</a>
-	  <a href="loginattempts.php">Last Logins</a>
-	</ul>
+      <a href="index.php">Climate</a>
+      <!-- <a href="climate.php">Climate Control</a> -->
+       <a href="rawdata.php">RAW Data</a>
     </div>
-	
-  </div>
-	<a href="settings.php">Settings</a>
+  </div> 
 	<!-- 2. Dropdown -->
-	<!--
-    <div class="dropdown">
-    <button class="dropbtn">Syno 
-      <i class="fa fa-caret-down"></i>
-    </button>
+  <div class="dropdown">
+    <button class="dropbtn"><i class="fa fa-cogs"></i> </button>
     <div class="dropdown-content">
-      <a target="blank" href="">NAS</a>
-      <a target="blank" href="">X-GW</a>
-	</ul>
+      <a href="settings.php">Settings</a>
+
     </div>
   </div>
-  -->
 	<!-- Logut Button -->
+	
+	
+	
+	  <div class="dropdown-login">
+    <button class="dropbtn-login"><i class="fa fa-user"></i> </button>
+    <div class="dropdown-content-login">
+      <a href="loginattempts.php">Login Attempts</a>
       <a href="login/logout.php">Logout</a>
+    </div>
+  </div>
+  
+  
 </div>
   </body>
 </html>
-
-
-
