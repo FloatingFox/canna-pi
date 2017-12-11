@@ -6,16 +6,17 @@ $dsn = 'mysql:host='.$config['host'].':'.$config['port'].';dbname='.$config['db_
 $conn = new PDO($dsn, $config['username'], $config['password']);
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   
-  
-  
-$fromDate = $_GET["fromDate"]; 
-$untilDate = $_GET["untilDate"];
 
 //CATCH EMPTY QUERY
-if($fromDate == ""){
-	$untilDate = $datePlus1;
-	$fromDate = $dateMin3;
-	
+if($fromDate == "" || $untilDate == ""){
+	$fromDate = $dateMin.' '.$config['lightOn'];
+	$untilDate = $datePlus.' '.$config['lightOff'];
+}else{
+	if(isset($fromDate) && isset($untilDate) ){
+		$fromDate = $_GET["fromDate"].' '.$config['lightOn'];
+		$untilDate = $_GET["untilDate"].' '.$config['lightOff'];
+		
+	}
 }
 //GET SQL DATA FROM SPECIFIC TIMEFRAME
   $connString = 'SELECT * FROM '.$config['table'].' WHERE datetime BETWEEN "'.$fromDate.'" and "'.$untilDate.'";';
