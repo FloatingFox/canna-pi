@@ -2,7 +2,12 @@
 
 body {
 background-color: #FAFAFA;
+font-family: Arial;
+margin: 0;
 }
+
+
+
 
 /* Ventilator Icons */
 /* Adjust buttonStyle on iOS */
@@ -12,99 +17,66 @@ button {
 	appearance: none;
 }
 
-.btnFan{
-   color: red;
-   background:url('/icon/fan.svg');
-   float: left;
-   height:64px;
-   width:64px;
-   background-size:     cover;                      /* <------ */
-   background-repeat:   no-repeat;
-   background-position: center center;
-} 
-
-.btnFanOn{
-   background:url('/icon/fanon.svg');
-   float: left;
-   height:64px;
-   width:64px;
-   background-size:     cover;                      /* <------ */
-   background-repeat:   no-repeat;
-   background-position: center center;
-} 
-
-.btnFanOff{
-   background:url('/icon/fanoff.svg');
-   float: left;
-   height:64px;
-   width:64px;
-   background-size:     cover;                      /* <------ */
-   background-repeat:   no-repeat;
-   background-position: center center;
-} 
-
-class.btnFan{
-	
-	
-}
-
 
 /* RAW-Data Table */
 
 table.raw-data {
 	border-collapse: collapse;
-    width: 25%;
-	border: 1px solid black;
+	width: 50%;
+	border: 1px solid #ddd;
+	margin: auto;
 }
 
 table.loginattempts {
 	border-collapse: collapse;
-    width: 25%;
-	border: 1px solid black;
+	width: 50 %;
+	border: 1px solid #ddd;
+	margin: auto;
 }
 
 .output_table_collum_names {
 	font-weight: bold;
 	background-color: #2c3e50;
     color: white;
-	border: 1px solid black;
+	border: 1px solid #ddd;
 	border-collapse: collapse;
 	text-align: center;
 	padding: 5px;
-	width: 50%; 
 }
-
 
 .output_table_rows {
-	border: 1px solid black;
+	border: 1px solid #ddd;
 	border-collapse: collapse;
 	text-align: center;
-	width: 30%;
+	padding: 5px;
+
 }
 
-
-
-
-.output_table_rows:nth-child(even){background-color: #f2f2f2;}
-.output_table_rows:hover {background-color: #ddd;}
-
-
-
+tr.output_table_rows:nth-child(even){background-color: #f2f2f2;}
+tr.output_table_rows:hover {background-color: #ddd;}
 
 /* Chartstyle inkl. Form */
 
 table.chart_style{
 	width:100%;
-    font-family: Arial;
 }
 
 
-table.dateFields {
+.dateFields, .div_dateFields {
 	border: none;
 	background-color: #FAFAFA;
+	margin:  auto;
+	text-align: center;
 }
 
 
+.db_settings {
+	text-align: center;
+}
+
+.db_settings_table, .rpi_settings_table, .light_settings_table {
+	margin:  auto;
+}
 
 input[type=timeframe] {
     /* padding: 12px 20px; */
@@ -114,7 +86,6 @@ input[type=timeframe] {
     background-color: #FAFAFA;
     color: black;
 	font-size:16px;
-	font-family: Arial; 
 	}
 
 /* Original Navbar CSS */
@@ -122,17 +93,69 @@ input[type=timeframe] {
 .navbar {
     overflow: hidden;
     background-color: #2c3e50;
-    font-family: Arial;
 }
 
 .navbar a {
     float: left;
     font-size: 16px;
     color: white;
-    text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
+
+/* START DROPWDOWNLOGIN*/
+
+.dropdown-login {
+	float: right;
+    overflow: hidden;
+	direction: rtl;
+}
+
+.dropdown-login .dropbtn-login {
+    font-size: 16px;    
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+}
+
+.navbar a:hover, .dropdown-login:hover .dropbtn-login {
+    background-color: black;
+}
+
+.dropdown-content-login {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+	float: left;
+
+}
+
+.dropdown-content-login a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content-login a:hover {
+    background-color: black;
+}
+
+.dropdown-login:hover .dropdown-content-login {
+    display: block;
+}
+
+
+/* END DROPWDOWNLOGIN*/
+
+
 
 .dropdown {
     float: left;
@@ -159,6 +182,8 @@ input[type=timeframe] {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+	float: left;
+
 }
 
 .dropdown-content a {
