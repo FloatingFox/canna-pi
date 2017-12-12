@@ -4,34 +4,53 @@
     <title>CPi | Overview</title>
 	<link rel='shortcut icon' type='image/x-icon' href='icon/favicon.ico' />
 	<link rel="stylesheet" href="css/cannapi.css">
+	<link rel="apple-touch-icon" sizes="57x57" href="icon/apple-icon-57x57.png" />
+	<link rel="apple-touch-icon" sizes="72x72" href="icon/apple-icon-72x72.png" />
+	<link rel="apple-touch-icon" sizes="114x114" href="icon/apple-icon-114x114.png" />
+	<link rel="apple-touch-icon" sizes="144x144" href="icon/apple-icon-144x144.png" />
   </head>
  </html>
 <?php require 'login/loginheader.php'; ?>
 <?php include 'navbar.php'; ?>	
 <?php $config = include 'conf.php'; ?>
 <?php 
-// FETCH CURRENT FANSPEED FROM RASPBERRY
+// FETCH CURRENT FANSPEED FROM RASPBERRY IF ADDRESS IS SET IN CONFIG
+
 $stat = file_get_contents("http://".$config['rpiaddress']."/fanstat.php");
 
-//GET CURRENT DATE AND ADD TIME 00:00:00
-
-
-$currentDate =  date('Y-m-d');
-$Date = $currentDate.' 00:00:00';
-
-//CREATE FUNCTION TO COUNT IN Y-M-D 00:00:00
+// CHECK IF LIGHTSCHEDULE IS SET
+if( isset($config['lightOn']) && isset($config['lightOff']) ){
+	
+}else{
+	$config['lightOn'] = "00:00:00";
+	$config['lightOff'] = "00:00:00";
+}
+//GET CURRENT DATE
+//CREATE FUNCTION TO COUNT IN Y-M-D
 //SAVE CURRENT DATE
+$currentDate =  date('Y-m-d');
 $start_date = $currentDate;
 $date = DateTime::createFromFormat('Y-m-d',$start_date);
 
-// -2 DAYS IN NEW VARIABLE
-$date->modify('-2 day');
-$dateMin3 = $date->format('Y-m-d').' 00:00:00';
+// SUBSTRACT AMOUNT OF DAYS FROM CONFIG
+
+$date->modify('-'.$config['shownDays'].' day');
+//$date->modify('+1 day');
+$dateMin = $date->format('Y-m-d').' '.$config['lightOn'];
+
+
+//GET CURRENT DATE
+//CREATE FUNCTION TO COUNT IN Y-M-D
+//SAVE CURRENT DATE
+$currentDate =  date('Y-m-d');
+$start_date = $currentDate;
+$date = DateTime::createFromFormat('Y-m-d',$start_date);
 
 
 //SAVE CURRENT DATE +1 IN NEW VARIABLE
-$date->modify('+4 day');
-$datePlus1 = $date->format('Y-m-d').' 00:00:00';
+$date->modify('+1 day');
+$datePlus = $date->format('Y-m-d').' '.$config['lightOff'];
+
 
 
 // CATCH VARIABLE FOR fromDate & untilDate FROM INPUT FIELDS
@@ -103,11 +122,9 @@ header( "Location: $url" );
 	 
 	 <div id="chart_div" class="chart_style" align="center"></div>
 	  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-	 <script type="text/javascript">
+	  <link rel="stylesheet" href="css/cannapi.css">
 	 
-		var stat = '<?php echo $stat;?>';
-		window.onload = function () { document.getElementById(stat).classList.toggle('btnFanOn') }
-	</script>
+	
 	  <!-- DATEFIELDS -->
 		<div id="dateFields" align="center">
 		<form><br />	
